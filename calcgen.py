@@ -1,8 +1,9 @@
 #current problems:
-#-does not work with double digit numbers because of bad input reading
+#inflexible input
 #-no support for negative operators, but results may be negative
 #-division results are aalways floats
-ostr = "f, g, h = list(input())\ndef calc(num1, op, num2):\n    num1, num2 = int(num1), int(num2)\n"
+#TODO: make work for floats
+ostr = "f, g, h = input(), input(), input()\ndef calc(num1, op, num2):\n    num1, num2 = int(num1), int(num2)\n"
 for m in range(150):
     for n in range(150):
         ostr += f"    if num1 == {m} and op == \"+\" and num2 == {n}:\n        return {m + n}\n"
