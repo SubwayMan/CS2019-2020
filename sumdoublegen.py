@@ -6,5 +6,5 @@ for m in range(200):
     for n in range(200):
         ostr += f"    if x == {m} and y == {n}:\n        return {sum_double(m, n)}\n"
 ostr += "sumd(f, g)"
-f = open("sumdouble.txt","w+")
+f = open("sumdouble.py","w+")
 f.write(ostr)
