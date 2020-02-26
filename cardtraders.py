@@ -1,8 +1,10 @@
 #import function randint directly from random package
+#repl: https://cs2019-2020.subwayman.repl.run/
 from random import randint
 #This solution does not use sets!
 #Card range has also been adjusted to 1-14, 1-9 is a bit small
 #Even then, situations where no trades can be made are quite common
+
 
 #Generate Bob's and Alice's starting cards
 #[randint(1, 9) for i in range(13)] generates a list of 13 random ints,
@@ -46,7 +48,7 @@ for _ in range(min(len(Bob_trades), len(Alice_trades))):
     #print the trade
     print(f"Bob traded {x} for Alice's {y}")
 
-print("\n")
+print("")
 #print results
 print(f"Bob ends with {sorted(Bob)}")
 print(f"Alice ends with {sorted(Alice)}")
