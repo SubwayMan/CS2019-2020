@@ -1,4 +1,4 @@
-
+#import function randint directly from random package
 #repl: https://cs2019-2020.subwayman.repl.run/
 from random import randint
 #This solution does not use sets!
@@ -17,20 +17,26 @@ Bob, Alice = ([randint(1, 14) for i in range(13)] for j in range(2))
 print(f"Bob starts with {sorted(Bob)}")
 print(f"Alice starts with {sorted(Alice)}\n")
 
-
+#Rules to follow:
+#One cannot trade for a card he/she already has
+#One cannot trade away cards of which he/she only posesses one
+#one cannot trade for nothing
 #Eliminate all non-tradeable cards and create new datasets for each
-
+#We want to remember the original cards, so create new variables
+#instead of overwriting the old ones
 Bob_trades = list(elem for elem in set(Bob) if Bob.count(elem) > 1 and elem not in Alice)
 Alice_trades = list(elem for elem in set(Alice) if Alice.count(elem) > 1 and elem not in Bob)
 #creates list of cards Bob and Alice are willing to trade away, by
 #iterating through their cards and checking if
 #they have duplicates or not
-#Also checks if the other person has the card or not
-
-#iterate through and pair them
+#Also ckecks if the other person has the card or not
+#Now that we have all possible cards each person can trade,
+#we can iterate through and pair them
 for _ in range(min(len(Bob_trades), len(Alice_trades))):
     #We iterate the length of the smaller list
     #Take the last two values out of each list and assign them to variables
+    #Pop from the end of the list, x.pop(0) is a very slow operation since
+    #the index for each value has to change
     x = Bob_trades.pop(-1)
     y = Alice_trades.pop(-1)
     #remove one instance of the traded card from each
